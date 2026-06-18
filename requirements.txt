@@ -1,0 +1,7 @@
+numpy>=1.24
+pandas>=1.5
+plotly>=5.14
+scipy>=1.9
+scikit-learn>=1.2
+statsmodels>=0.14
+nbformat>=5.7
