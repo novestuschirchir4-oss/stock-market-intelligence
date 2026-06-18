@@ -1,29 +1,67 @@
+<div align="center">
+
 # Stock Market Intelligence and Analytics Platform
 
-**Author:** Novestus Chirchir
-**GitHub:** novestuschirchir4-oss
-**Methodology:** CRISP-DM | Tabachnick and Fidell (2019) | APA 7th Edition
-**Language:** Python 3.10+
-**Status:** Production-Ready
+### An End-to-End Quantitative Research and Business Analytics Engagement
+
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Engineering-150458?style=flat-square&logo=pandas&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-Interactive%20Visualisation-3F4F75?style=flat-square&logo=plotly&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-Predictive%20Modelling-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
+![Methodology](https://img.shields.io/badge/Methodology-CRISP--DM-6A4C93?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-2E8B57?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Production--Ready-2E8B57?style=flat-square)
+
+</div>
+
+---
+
+| | |
+|---|---|
+| **Author** | Novestus Chirchir |
+| **GitHub** | [novestuschirchir4-oss](https://github.com/novestuschirchir4-oss) |
+| **Methodology** | CRISP-DM · Tabachnick & Fidell (2019) · APA 7th Edition |
+| **Stack** | Python 3.10+, pandas, NumPy, statsmodels, scikit-learn, Plotly |
+| **Deliverables** | Jupyter notebook · standalone script · self-contained interactive dashboard |
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Analytical Framework](#analytical-framework)
+- [Repository Structure](#repository-structure)
+- [Data Architecture](#data-architecture)
+- [Analytical Pipeline](#analytical-pipeline)
+- [Key Results Summary](#key-results-summary)
+- [Quick Start](#quick-start)
+- [Environment Compatibility](#environment-compatibility)
+- [Methodological References](#methodological-references)
+- [License](#license)
 
 ---
 
 ## Overview
 
-This project is a complete end-to-end business analytics and data science engagement
-built around three real-world financial datasets totalling 3,315 records across 503
-S&P 500 companies and nine years of daily equity prices. It is structured to demonstrate
-the full range of skills expected of a senior data analyst or analytics consultant, from
-raw data acquisition and statistical validation through predictive modelling and
-executive-level visualisation.
+This repository contains a complete quantitative research and business intelligence engagement built on three real-world financial datasets totalling 3,315 records, spanning 503 S&P 500 constituents and nine years of daily equity price history. The work is structured as a single coherent narrative running from raw data acquisition through statistical validation, diagnostic analysis, predictive modelling, and executive decision support — the full range of deliverables expected of a senior data analyst operating at investment-research standard.
 
-The analytical pipeline answers four progressive business questions:
+Every analytical result produced in the underlying notebook is also rendered into a self-contained, browser-based executive dashboard, giving stakeholders two ways to consume the same body of work: a fully reproducible analytical script for technical audiences, and an interactive visual interface for decision-makers who will never open a line of code.
 
-| Level | Question | Method |
+<img width="1847" height="815" alt="image" src="https://github.com/user-attachments/assets/9bbaee40-3c1c-4a3e-88ac-a3c6a0d69391" />
+
+*Figure 1. The consolidated executive dashboard, presenting key performance indicators, price intelligence, risk analytics, sector positioning, predictive output, and strategic recommendations within a single interactive interface.*
+
+---
+
+## Analytical Framework
+
+The pipeline is organised around four progressively deeper business questions, each answered with a distinct analytical method:
+
+| Tier | Business Question | Method |
 |---|---|---|
-| Descriptive | What happened in price and volume? | EDA, OHLCV charting, Bollinger Bands |
-| Diagnostic | Why did returns behave this way? | Correlation, OLS regression, MACD, RSI |
-| Predictive | What price is expected next? | Linear Regression, Ridge Regression |
+| Descriptive | What happened in price and volume? | Exploratory data analysis, OHLCV charting, Bollinger Bands |
+| Diagnostic | Why did returns behave this way? | Correlation analysis, OLS regression, MACD, RSI |
+| Predictive | What price is expected next? | Linear Regression, Ridge Regression with time-series cross-validation |
 | Prescriptive | What should a portfolio manager do? | Risk metrics, sector screening, Graham value filter |
 
 ---
@@ -34,23 +72,23 @@ The analytical pipeline answers four progressive business questions:
 stock-market-intelligence/
 │
 ├── notebooks/
-│   └── stock_intelligence_platform.ipynb   # Main Jupyter notebook (11 cells)
+│   └── stock_intelligence_platform.ipynb     Eleven-stage Jupyter notebook
 │
 ├── dashboard/
-│   └── stock_intelligence_dashboard.html   # Self-contained interactive HTML dashboard
+│   └── stock_intelligence_dashboard.html     Self-contained interactive dashboard
 │
 ├── src/
-│   ├── stock_intelligence_platform.py      # Full pipeline as a single runnable script
-│   └── analytics_helpers.py                # Reusable helper functions and constants
+│   ├── stock_intelligence_platform.py        Full pipeline as a runnable script
+│   └── analytics_helpers.py                  Reusable functions and constants
 │
 ├── data/
-│   └── DATA_SOURCES.md                     # Full citations for all three datasets
+│   └── DATA_SOURCES.md                       Full citations for all three datasets
 │
 ├── reports/
-│   └── METHODOLOGY.md                      # Detailed statistical methodology notes
+│   └── METHODOLOGY.md                        Detailed statistical methodology notes
 │
 ├── visuals/
-│   └── (charts exported here when running the script)
+│   └── (exported figures referenced throughout this document)
 │
 ├── requirements.txt
 ├── .gitignore
@@ -59,348 +97,348 @@ stock-market-intelligence/
 
 ---
 
-## Data Sources
+## Data Architecture
 
-All data is fetched at runtime from public GitHub URLs. No API keys, downloads, or
-local file paths are required. The project runs identically on JupyterLab, Google Colab,
-Anaconda, and any standard Python environment.
+All data is retrieved at runtime from public, version-controlled sources. No API keys, manual downloads, or local file paths are required, and the pipeline executes identically across JupyterLab, Google Colab, Anaconda, and any standard Python environment.
 
-### Dataset 1 — S&P 500 Constituent Fundamentals
+**Dataset I — S&P 500 Constituent Fundamentals**
 
 | Field | Detail |
 |---|---|
-| Publisher | DataHub / datasets organisation |
-| Records | 503 companies, 14 variables |
-| Variables | Symbol, Sector, Price, P/E, P/B, EPS, Market Cap, EBITDA, Dividend Yield |
-| Period | Snapshot circa 2017-2018 |
-| URL | https://raw.githubusercontent.com/datasets/s-and-p-500-companies-financials/master/data/constituents-financials.csv |
+| Publisher | DataHub |
+| Coverage | 503 companies, 14 variables |
+| Variables | Symbol, sector, price, P/E, P/B, EPS, market capitalisation, EBITDA, dividend yield |
+| Period | Snapshot, circa 2017–2018 |
 
-**Citation:** DataHub. (2018). *S&P 500 companies with financial information* [Dataset]. GitHub. https://github.com/datasets/s-and-p-500-companies-financials
+> DataHub. (2018). *S&P 500 companies with financial information* [Dataset]. GitHub.
 
----
-
-### Dataset 2 — Apple Inc. Daily OHLCV Price Series
+**Dataset II — Apple Inc. Daily OHLCV Price Series**
 
 | Field | Detail |
 |---|---|
 | Publisher | Plotly Technologies Inc. |
-| Records | 506 trading days |
-| Variables | Date, Open, High, Low, Close, Volume, Adjusted Close, Bollinger Upper/Mid/Lower, Trend |
-| Period | 2015-02-17 to 2017-02-16 |
-| URL | https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv |
+| Coverage | 506 trading days |
+| Variables | Date, open, high, low, close, volume, adjusted close, Bollinger bands, trend |
+| Period | 17 February 2015 – 16 February 2017 |
 
-**Citation:** Plotly Technologies Inc. (2017). *Finance charts — Apple OHLCV* [Dataset]. GitHub. https://github.com/plotly/datasets
+> Plotly Technologies Inc. (2017). *Finance charts — Apple OHLCV* [Dataset]. GitHub.
 
----
-
-### Dataset 3 — Multi-Stock Daily Close Prices
+**Dataset III — Multi-Stock Daily Close Prices**
 
 | Field | Detail |
 |---|---|
 | Publisher | Plotly Technologies Inc. |
-| Records | 2,306 trading days |
-| Tickers | AAPL, MSFT, IBM, SBUX, GSPC (S&P 500 Index) |
-| Period | 2007-01-03 to 2016-03-01 |
-| URL | https://raw.githubusercontent.com/plotly/datasets/master/stockdata.csv |
+| Coverage | 2,306 trading days |
+| Tickers | AAPL, MSFT, IBM, SBUX, and the S&P 500 Index |
+| Period | 3 January 2007 – 1 March 2016 |
 
-**Citation:** Plotly Technologies Inc. (2016). *Stock market data — AAPL, MSFT, IBM, SBUX, S&P 500* [Dataset]. GitHub. https://github.com/plotly/datasets
-
----
-
-## Screenshots and Visual Outputs
-
-> Screenshots are captured from the running Python notebook and dashboard.
-> Replace each placeholder below with the corresponding screenshot from your environment.
-
-### Executive Dashboard — Overview
-
-![Dashboard Overview](visuals/screenshot_dashboard_overview.png)
-*The Bloomberg dark-terminal styled executive dashboard with all 15 interactive Plotly charts rendered in a single self-contained HTML file.*
-
----
-
-### Cell 4 — AAPL Price Intelligence Chart
-
-![AAPL Price Chart](visuals/screenshot_aapl_price_chart.png)
-*Three-panel chart: candlestick with Bollinger Bands and moving averages (top), RSI(14) with overbought/oversold zones (middle), daily volume with 20-day average (bottom).*
-
----
-
-### Cell 5 — Multi-Stock Normalised Performance (2007-2016)
-
-![Multi-Stock Performance](visuals/screenshot_multistock_performance.png)
-*Base-100 normalised close price series for AAPL, MSFT, IBM, SBUX, and the S&P 500 from 2007 to 2016. AAPL reached +807% over the decade.*
-
----
-
-### Cell 5 — Return Correlation Heatmap
-
-![Correlation Heatmap](visuals/screenshot_correlation_heatmap.png)
-*Pearson correlation matrix of daily returns for all five tickers. Annotated with coefficient values on a red-to-green colour scale.*
-
----
-
-### Cell 7 — Drawdown Analysis
-
-![Drawdown Chart](visuals/screenshot_drawdown.png)
-*Continuous drawdown from rolling peak equity. Maximum drawdown of -32.08% reached during the 2016 correction. Recovery timeline visible in the chart.*
-
----
-
-### Cell 7 — Rolling 30-Day Beta
-
-![Rolling Beta](visuals/screenshot_rolling_beta.png)
-*Rolling 30-day beta of AAPL, MSFT, IBM, and SBUX against the S&P 500 from 2007 to 2016. Beta oscillations captured across earnings cycles and market-wide events.*
-
----
-
-### Cell 8 — Sector Treemap (S&P 500 Market Capitalisation)
-
-![Sector Treemap](visuals/screenshot_sector_treemap.png)
-*All 11 GICS sectors proportionally sized by total market capitalisation. Colour represents median sector P/E ratio on a red-yellow-green scale.*
-
----
-
-### Cell 8 — Valuation Landscape (PE vs PB)
-
-![Valuation Scatter](visuals/screenshot_valuation_scatter.png)
-*P/E ratio vs P/B ratio scatter for all 503 S&P 500 companies. Bubble size proportional to market capitalisation. Colour coded by sector. Hover shows company name, EPS, dividend yield, and Graham classification.*
-
----
-
-### Cell 8 — Monthly Seasonality
-
-![Seasonality Chart](visuals/screenshot_seasonality.png)
-*Average AAPL daily return by calendar month with percentage-positive overlay. Bars coloured green for positive months and red for negative months.*
-
----
-
-### Cell 9 — MACD Technical Indicator
-
-![MACD Chart](visuals/screenshot_macd.png)
-*Close price with MA50 (upper panel) and MACD line, signal line, and histogram with green/red colouring (lower panel).*
-
----
-
-### Cell 10 — Predictive Model: Actual vs Forecast
-
-![Prediction Chart](visuals/screenshot_predictions.png)
-*Out-of-sample test set comparison of actual AAPL close price against Linear Regression and Ridge Regression forecasts. 80/20 temporal train-test split with 5-fold TimeSeriesSplit cross-validation.*
-
----
-
-### Cell 3 — Data Quality Console Output
-
-![Data Quality Tables](visuals/screenshot_data_quality_tables.png)
-*APA-formatted console output from Cell 3: missing value analysis, Shapiro-Wilk normality test, Z-score outlier detection, and Augmented Dickey-Fuller stationarity test.*
-
----
-
-### Cell 6 — OLS Regression and Diagnostics Console Output
-
-![Regression Tables](visuals/screenshot_regression_tables.png)
-*APA-formatted OLS regression output (R-squared = 0.974), Breusch-Pagan heteroskedasticity test, Durbin-Watson statistic (0.502), and VIF multicollinearity table.*
-
----
-
-### Cell 11 — Strategic Recommendations Table
-
-![Recommendations Table](visuals/screenshot_recommendations.png)
-*Eight dynamically computed strategic recommendations covering risk-adjusted return, systematic risk, drawdown management, long-term alpha, value investing, predictive deployment, sector rotation, and seasonal patterns.*
+> Plotly Technologies Inc. (2016). *Stock market data — AAPL, MSFT, IBM, SBUX, S&P 500* [Dataset]. GitHub.
 
 ---
 
 ## Analytical Pipeline
 
-### Cell 1 — Environment Setup
-Installs any missing packages, applies the NumPy 2.x compatibility patch for Plotly,
-imports all libraries, and defines visual constants and helper functions.
+The notebook is organised into eleven sequential stages, mirrored exactly in the standalone script. Each stage below is presented with its purpose, its statistical output, and the corresponding analytical view it produces.
 
-**NumPy 2.x compatibility note:** NumPy 2.0 removed the `bool8` alias. Plotly versions
-below 5.14 reference this attribute at import time and will crash with `AttributeError:
-module 'numpy' has no attribute 'bool8'`. Cell 1 patches this with two lines before
-any Plotly import, making the notebook safe on Anaconda, JupyterLab, and Colab
-regardless of the installed NumPy version.
+### 01 — Environment Configuration
 
----
+Initialises the runtime: installs any missing dependencies, imports the analytical stack, defines shared visual constants and helper functions, and applies a forward-compatibility patch for NumPy 2.x. NumPy 2.0 removed the legacy `bool8` alias that older Plotly builds reference at import time; the patch is applied before any Plotly import, ensuring the notebook runs cleanly on Anaconda, JupyterLab, and Colab regardless of the installed NumPy version.
 
-### Cell 2 — Data Acquisition and Feature Engineering
-Downloads all three datasets and engineers 28 features per trading day.
+### 02 — Data Acquisition and Feature Engineering
+
+Retrieves all three datasets and engineers twenty-eight features per trading day.
 
 | Feature Group | Features |
 |---|---|
-| Returns | DailyReturn, LogReturn, CumulativeReturn |
-| Trend | MA20, MA50, MA200 |
-| Volatility | Volatility20 (rolling annualised standard deviation) |
-| Momentum | RSI(14), MACD(12,26,9), MACD Signal Line, MACD Histogram |
+| Returns | Daily return, log return, cumulative return |
+| Trend | 20-, 50-, and 200-day moving averages |
+| Volatility | 20-day rolling annualised standard deviation |
+| Momentum | RSI(14), MACD(12,26,9), signal line, histogram |
 | Risk | Drawdown from rolling peak |
-| Volume | Volume 20-day moving average |
-| Price | High-Low Spread, Open-Close Change |
-| Calendar | Month, Day of Week, Year, Quarter |
+| Volume | 20-day volume moving average |
+| Price structure | High–low spread, open–close change |
+| Calendar | Month, day of week, year, quarter |
+
+### 03 — Data Quality Assessment
+
+Establishes the statistical integrity of the dataset ahead of modelling, following Tabachnick and Fidell (2019), across five tables: missing-value analysis, descriptive statistics, Shapiro-Wilk normality testing, Z-score outlier detection, and Augmented Dickey-Fuller stationarity testing. Close prices are confirmed non-stationary at level — I(1) — while returns are stationary at level — I(0) — the expected signature of an equity price series and a precondition correctly verified before any regression is run.
+
+#### Statistical Tables
+
+##### TABLE 1. Missing Value Analysis — AAPL OHLCV
+
+| Variable | N Missing | % Missing | Decision |
+|----------|-----------:|----------:|-----------|
+| Open | 0 | 0.0000 | No action required |
+| High | 0 | 0.0000 | No action required |
+| Low | 0 | 0.0000 | No action required |
+| Close | 0 | 0.0000 | No action required |
+| Volume | 0 | 0.0000 | No action required |
+| DailyReturn | 1 | 0.2000 | Forward-fill (lag structure) |
+| Volatility20 | 20 | 3.9500 | Forward-fill (lag structure) |
+| RSI | 14 | 2.7700 | Forward-fill (lag structure) |
+| MACD | 0 | 0.0000 | No action required |
+
+**Note.** *n* = 506 trading days. Missing values in DailyReturn, Volatility20, RSI, and MACD arise from rolling window initialisation, not data absence.
 
 ---
 
-### Cell 3 — Data Quality Assessment (Tabachnick and Fidell, 2019)
+##### TABLE 2. Descriptive Statistics — AAPL Price & Return Series
 
-Produces five APA-formatted console tables:
+| Variable | N | Mean | SD | Min | Q1 | Median | Q3 | Max | Skewness | Kurtosis |
+|----------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
+| Close | 506.0000 | 112.9583 | 11.2447 | 90.3400 | 105.6725 | 113.0250 | 122.1800 | 135.5100 | -0.0628 | -0.9778 |
+| DailyReturn | 505.0000 | 0.0002 | 0.0153 | -0.0657 | -0.0066 | 0.0000 | 0.0083 | 0.0650 | -0.0640 | 3.0939 |
+| LogReturn | 505.0000 | 0.0001 | 0.0153 | -0.0680 | -0.0066 | 0.0000 | 0.0082 | 0.0629 | -0.1804 | 3.1463 |
+| Volatility20 | 486.0000 | 0.2291 | 0.0830 | 0.0764 | 0.1766 | 0.2241 | 0.2687 | 0.4854 | 0.7651 | 0.8102 |
+| Volume | 506.0000 | 43178420.9486 | 19852531.3009 | 11475900.0000 | 29742400.0000 | 37474600.0000 | 50763950.0000 | 162206300.0000 | 1.8935 | 5.2624 |
+| HL_Spread | 506.0000 | 1.9774 | 1.1965 | 0.5800 | 1.2425 | 1.7250 | 2.3750 | 16.8000 | 4.6429 | 47.3040 |
 
-| Table | Test | Finding |
-|---|---|---|
-| Table 1 | Missing Value Analysis | Zero missing values in source OHLCV; rolling-window fields initialise from day 14/20/50 |
-| Table 2 | Descriptive Statistics | Mean, SD, Min, Q1, Median, Q3, Max, Skewness, Kurtosis for six variables |
-| Table 3 | Shapiro-Wilk Normality | W statistic and p-value for Close, DailyReturn, LogReturn |
-| Table 4 | Z-Score Outlier Detection | 8 extreme returns (1.6%) identified; retained per Mandelbrot (1963) |
-| Table 5 | Augmented Dickey-Fuller | Close prices: I(1) non-stationary. Returns: I(0) stationary |
-
----
-
-### Cell 4 — AAPL Price Intelligence Chart
-
-Three-panel interactive chart rendered inline in Jupyter:
-
-- **Panel 1:** Candlestick with Bollinger Bands (20-day), MA50, MA200
-- **Panel 2:** RSI(14) with overbought (>70) and oversold (<30) shaded zones
-- **Panel 3:** Daily volume bars (green/red) with 20-day volume moving average
+**Note.** All statistics computed on raw (unadjusted) price series. Kurtosis reported as excess kurtosis (normal distribution = 0).
 
 ---
 
-### Cell 5 — Multi-Stock EDA
+##### TABLE 3. Normality Assessment — Shapiro-Wilk Test
 
-Two interactive charts:
+| Variable | N | Mean | SD | Skewness | Kurtosis | SW W | p | Normal (p > .05) |
+|----------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|:----------------:|
+| Close | 506 | 112.9583 | 11.2447 | -0.0628 | -0.9778 | 0.9628 | 0.0000 | No |
+| DailyReturn | 505 | 0.0002 | 0.0153 | -0.0640 | 3.0939 | 0.9565 | 0.0000 | No |
+| LogReturn | 505 | 0.0001 | 0.0153 | -0.1804 | 3.1463 | 0.9557 | 0.0000 | No |
 
-- **Chart 1:** Normalised performance, base 100, for all five tickers 2007-2016
-  - AAPL: +807%   MSFT: +207%   IBM: +100%   SBUX: +547%   S&P 500: +40%
-- **Chart 2:** Pearson correlation heatmap of daily returns (red-to-green scale)
-
-Followed by **Table 6:** Full Pearson correlation matrix printed in APA format.
+**Note.** Shapiro-Wilk test applied to first 500 observations. p < .05 indicates significant departure from normality. Financial return series are expected to be leptokurtic (fat-tailed).
 
 ---
 
-### Cell 6 — Statistical Analysis
+##### TABLE 4. Outlier Detection — Z-Score Method (|Z| > 3.29)
 
-Produces four APA-formatted tables:
+| Variable | N | Outliers | % | Min Outlier | Max Outlier | Decision |
+|----------|----:|---------:|------:|------------:|------------:|-----------|
+| DailyReturn | 505 | 8 | 1.58 | -6.571 | 6.496 | Retained |
 
-**Table 7 — OLS Regression (Close ~ MA20 + Volume + RSI + Volatility20)**
+**Note.** Criterion: |Z| > 3.29 (Tabachnick & Fidell, 2019, p. 77). Extreme returns retained: fat tails are a structural property of equity returns, not data errors (Mandelbrot, 1963; Fama, 1965).
 
-| Metric | Value |
-|---|---|
+---
+
+##### TABLE 5. Augmented Dickey-Fuller Test — Stationarity
+
+| Variable | ADF Stat | p-value | Lags | Crit(5%) | Stationary |
+|----------|---------:|---------:|----:|---------:|:----------:|
+| Close Price | -1.3725 | 0.5954 | 0 | -2.8673 | No (unit root) |
+| Daily Return | -22.1014 | 0.0000 | 0 | -2.8673 | Yes |
+| Log Return | -22.0748 | 0.0000 | 0 | -2.8673 | Yes |
+
+**Note.** H0: Unit root present (non-stationary). p < .05 rejects H0. Prices are integrated I(1); returns are stationary I(0) as expected.
+
+### 04 — AAPL Price Intelligence
+
+A three-panel technical view of Apple Inc. price action: candlestick price action with 20-day Bollinger Bands and the 50- and 200-day moving averages in the upper panel; the 14-day Relative Strength Index with shaded overbought and oversold zones in the middle panel; and daily trading volume against its 20-day moving average in the lower panel.
+
+<img width="833" height="820" alt="image" src="https://github.com/user-attachments/assets/9b685896-8b16-48d9-89e2-359b584f8496" />
+
+*Figure 2. Three-panel technical analysis of Apple Inc. equity price action, momentum, and volume.*
+
+### 05 — Multi-Stock Exploratory Analysis
+
+Normalises AAPL, MSFT, IBM, SBUX, and the S&P 500 to a common base of 100 and traces relative performance from 2007 to 2016 — AAPL advanced 807%, SBUX 547%, MSFT 207%, IBM 100%, and the index itself 40% — followed by a Pearson correlation matrix of daily returns across all five tickers, reported in full APA format.
+
+<img width="833" height="520" alt="image" src="https://github.com/user-attachments/assets/110ce68b-8aa3-4dc3-9cae-01d0e126e0a9" />
+
+*Figure 3. Base-100 normalised performance of AAPL, MSFT, IBM, SBUX, and the S&P 500, 2007–2016.*
+
+<img width="833" height="500" alt="image" src="https://github.com/user-attachments/assets/34f96938-7c2b-482c-8148-eac2b9322bd4" />
+*Figure 4. Pearson correlation matrix of daily returns across all five tracked instruments.*
+
+### 06 — Statistical Analysis
+
+Estimates an OLS regression of closing price on the 20-day moving average, trading volume, RSI, and 20-day volatility (R² = .974, adjusted R² = .974, F significant at p < .001), followed by a full diagnostic battery: a Breusch-Pagan test indicating heteroscedastic residuals, a Durbin-Watson statistic of 0.502 indicating positive autocorrelation consistent with a price-level specification, a variance inflation factor table documenting the expected collinearity between price and its own moving average, and a paired Pearson–Spearman correlation between closing price and volume.
+
+#### TABLE 7. OLS Regression — Predicting AAPL Close Price
+
+| Variable | B | SE | t | p | 95% CI Lower | 95% CI Upper |
+|-----------|---------:|---------:|---------:|---------:|---------:|---------:|
+| (Constant) | -10.5116 | 1.0325 | -10.1805 | 0.0000 | -12.5404 | -8.4828 *** |
+| MA20 | 1.0095 | 0.0081 | 124.6459 | 0.0000 | 0.9936 | 1.0254 *** |
+| Volume | -0.0000 | 0.0000 | -5.1489 | 0.0000 | -0.0000 | -0.0000 *** |
+| RSI | 0.1898 | 0.0045 | 41.9896 | 0.0000 | 0.1810 | 0.1987 *** |
+| Volatility20 | 2.5711 | 1.0992 | 2.3391 | 0.0197 | 0.4113 | 4.7310 * |
+
+| Model Statistic | Value |
+|-----------------|-------|
+| Dependent Variable | Close (USD) |
+| Predictors | MA20, Volume, RSI, Volatility20 |
+| n | 486 |
 | R-squared | 0.9744 |
-| Adjusted R-squared | 0.9742 |
-| F-statistic | significant at p < .001 |
+| Adjusted R-squared | 0.9741 |
+| F-statistic | F(4, 481) = 4569.47 |
+| Model p-value | 0.00e+00 |
+| AIC | 1942.53 |
+| BIC | 1963.46 |
 
-**Table 8 — Regression Diagnostics**
-
-| Test | Statistic | Interpretation |
-|---|---|---|
-| Breusch-Pagan | p < .05 | Heteroscedastic residuals; robust standard errors advised |
-| Durbin-Watson | 0.502 | Positive autocorrelation; expected in price-level regression |
-
-**Table 9 — VIF Multicollinearity**
-MA20 shows high VIF by construction (collinear with Close in time series). This is
-documented, not corrected, as the regression is illustrative rather than causal.
-
-**Table 10 — Pearson and Spearman Correlation (Close vs Volume)**
-Both methods reported. Spearman rho preferred for monotonic non-linear relationships.
+**Note.** * p < .05, ** p < .01, *** p < .001.
 
 ---
 
-### Cell 7 — Risk Analytics
+#### TABLE 8. Regression Assumption Diagnostics
 
-**Table 11 — AAPL Risk and Performance Metrics (2015-2017)**
+| Test | Statistic | p-value | Verdict |
+|--------|---------:|---------:|----------|
+| Breusch-Pagan (homoscedasticity) | 85.0779 | 0.0000 | Heteroscedastic (robust SE advised) |
+| Durbin-Watson (independence) | 0.5020 | N/A | Autocorrelation detected |
 
-| Metric | Value |
-|---|---|
-| Sharpe Ratio | 0.239 |
-| Maximum Drawdown | -32.08% |
-| Beta vs S&P 500 | 0.961 |
-| VaR (95%, 1-day) | -2.49% |
-
-Three inline charts:
-- Drawdown from rolling peak (filled area, red)
-- Return distribution vs theoretical normal (fat-tail visualisation)
-- Rolling 30-day Beta for all four stocks vs S&P 500 (2007-2016)
-
-**Table 12 — Multi-Stock Risk Comparison:** annualised return, volatility, Sharpe, VaR,
-and 10-year total return for AAPL, MSFT, IBM, SBUX, and S&P 500.
+**Note.** Breusch-Pagan H0: homoscedastic residuals. Durbin-Watson range 1.5–2.5 indicates no problematic autocorrelation. DW = 0.5020 indicates positive autocorrelation as expected in price levels.
 
 ---
 
-### Cell 8 — Business Analytics
+#### TABLE 9. Variance Inflation Factors (Multicollinearity)
 
-**Chart 1 — Sector Treemap:** All 11 S&P 500 sectors sized by total market
-capitalisation, coloured by median P/E ratio on a red-yellow-green scale.
+| Variable | VIF | Tolerance | Assessment |
+|-----------|---------:|---------:|------------|
+| MA20 | 19.38 | 0.0516 | High |
+| Volume | 7.50 | 0.1333 | Moderate |
+| RSI | 8.67 | 0.1154 | Moderate |
+| Volatility20 | 8.88 | 0.1126 | Moderate |
 
-**Chart 2 — Valuation Landscape:** PE ratio vs P/B ratio scatter plot for 499 S&P 500
-companies. Bubble size represents market capitalisation. Colour represents sector.
-
-**Chart 3 — Sector Bubble Chart:** Median PE vs average dividend yield with bubble
-size representing number of constituent companies.
-
-**Chart 4 — Monthly Seasonality:** Average daily return by calendar month with
-percentage-positive overlay.
-
-**Table 13 — Sector Summary Statistics:** Company count, total market cap, median PE,
-median PB, and average dividend yield for all 11 sectors.
-
-**Table 14 — Graham Value Screen:** Top 15 deep-value S&P 500 stocks scoring 100/100
-on the composite Graham screen, ranked by market capitalisation.
+**Note.** VIF > 10 indicates problematic multicollinearity. MA20 is correlated with Close by construction; this is expected in time-series.
 
 ---
 
-### Cell 9 — MACD and RSI Technical Indicators
+#### TABLE 10. Bivariate Correlation — Close Price vs Daily Volume
 
-Two multi-panel charts:
+| Method | r | p-value | Significant |
+|---------|---------:|---------:|:-----------:|
+| Pearson | -0.0208 | 0.6472 | No |
+| Spearman | 0.0109 | 0.8107 | No |
 
-- **MACD Chart:** Close price with MA50 (upper panel) + MACD line, signal line, and
-  histogram with green/red colouring (lower panel)
-- **RSI Chart:** Close price (upper panel) + RSI with overbought/oversold zones (lower panel)
+**Note.** n = 486. Two-tailed test. Spearman rho is preferred for monotonic but non-linear relationships, which is typical for price-volume dynamics.
+
+*OLS regression output with heteroscedasticity, autocorrelation, and multicollinearity diagnostics.*
+
+### 07 — Risk Analytics
+
+Computes the core risk and performance profile for AAPL over the 2015–2017 window — a Sharpe ratio of 0.239, a maximum drawdown of −32.08%, a beta of 0.961 against the S&P 500, and a 95% one-day Value-at-Risk of −2.49% — alongside a continuous drawdown trace, a return-distribution comparison against the theoretical normal, and a rolling 30-day beta of AAPL, MSFT, IBM, and SBUX against the index across the full 2007–2016 sample. A companion table extends annualised return, volatility, Sharpe ratio, VaR, and ten-year total return across all five instruments.
+
+<img width="833" height="380" alt="image" src="https://github.com/user-attachments/assets/6100f79a-16f9-4610-b6cc-e968622c812b" />
+
+*Figure 5. Continuous drawdown from rolling peak equity, with maximum drawdown reached during the 2016 correction.*
+
+<img width="833" height="460" alt="image" src="https://github.com/user-attachments/assets/5cdf3897-b53a-4574-b06d-7e0252876586" />
+
+*Figure 6. Rolling 30-day beta of AAPL, MSFT, IBM, and SBUX against the S&P 500, 2007–2016.*
+
+### 08 — Business Analytics
+
+Maps the full S&P 500 universe across four views: a sector treemap sized by total market capitalisation and coloured by median sector P/E; a valuation landscape plotting P/E against P/B for 499 constituents, with bubble size set to market capitalisation and colour set to sector; a sector bubble chart comparing median P/E against average dividend yield; and a monthly seasonality chart of average AAPL daily returns by calendar month. The accompanying tables summarise company count, total market capitalisation, median P/E, median P/B, and average dividend yield by sector, and present the top fifteen constituents by market capitalisation scoring 100/100 on a composite Graham deep-value screen.
+
+<img width="833" height="520" alt="image" src="https://github.com/user-attachments/assets/a32c934d-2f7e-4251-bb22-3c7b363317c3" />
+
+*Figure 7. S&P 500 sector composition by market capitalisation, coloured by median sector P/E ratio.*
+
+<img width="833" height="560" alt="image" src="https://github.com/user-attachments/assets/9cc18282-ea7b-432d-b68a-3f84a9fd3afc" />
+
+*Figure 8. P/E versus P/B valuation landscape across the S&P 500, sized by market capitalisation and coloured by sector.*
+<img width="833" height="500" alt="image" src="https://github.com/user-attachments/assets/849bdde4-5fc2-43da-9c7c-a91bf98b7bf1" />
+
+<img width="833" height="420" alt="image" src="https://github.com/user-attachments/assets/149d6243-4ac5-441e-8f5d-c085025ccf7f" />
+
+*Figure 9. Average AAPL daily return by calendar month, with the proportion of positive months overlaid.*
+
+### 09 — Technical Indicators: MACD and RSI
+
+Builds two multi-panel technical charts: closing price with its 50-day moving average paired against the MACD line, signal line, and histogram in the first; and closing price paired against RSI with overbought and oversold zones in the second.
+
+<img width="833" height="600" alt="image" src="https://github.com/user-attachments/assets/3c2d8d6a-f4e7-4737-a06c-c715c8b6f6e0" />
+<img width="833" height="560" alt="image" src="https://github.com/user-attachments/assets/40aee86c-01b8-42a9-b070-84c2b3d2d98c" />
+
+*Figure 10. Closing price with 50-day moving average, MACD line, signal line, and histogram.*
+
+### 10 — Predictive Analytics
+
+Trains Linear and Ridge regression models under an 80/20 temporal split with five-fold time-series cross-validation. On the out-of-sample test set, Linear Regression achieves an RMSE of 1.290, an R² of 0.965, and a MAPE of 0.719%, modestly outperforming Ridge regression (RMSE 1.293, R² 0.965, MAPE 0.739%) — evidence that the underlying relationship is close to linear and that regularisation offers limited additional benefit on this feature set. Standardised feature importances are reported alongside the comparison.
+
+<img width="833" height="480" alt="image" src="https://github.com/user-attachments/assets/a9f341c4-9bc6-4c53-a991-f2f4919c7779" />
+
+*Figure 11. Out-of-sample comparison of actual AAPL closing price against Linear and Ridge regression forecasts.*
+<img width="833" height="360" alt="image" src="https://github.com/user-attachments/assets/15e3f3e0-13e8-4201-bab2-f166715aea51" />
+
+### 11 — Executive Recommendations
+
+#### 1. RISK-ADJUSTED RETURN
+
+Finding: Sharpe ratio = 0.239. Below 1.0: does not fully compensate for volatility (24.3% annualised).  
+Action: Maintain position if Sharpe > 0.5. Implement stop-loss at max drawdown threshold.
 
 ---
 
-### Cell 10 — Predictive Analytics
+#### 2. SYSTEMATIC RISK EXPOSURE
 
-**Training protocol:** 80/20 temporal split with 5-fold TimeSeriesSplit cross-validation.
-
-**Table 15 — Model Comparison (out-of-sample test set)**
-
-| Model | RMSE | R-squared | MAPE | CV R-squared |
-|---|---|---|---|---|
-| Linear Regression | 1.2897 | 0.9650 | 0.719% | 0.642 |
-| Ridge (alpha=1.0) | 1.2928 | 0.9648 | 0.739% | 0.213 |
-
-**Table 16 — Feature Importance:** Absolute standardised coefficients from Linear
-Regression normalised to sum to 100%.
+Finding: Beta = 0.961 vs S&P 500. Near-market beta: suitable for core portfolio allocation.  
+Action: Size position using beta-adjusted allocation. Hedge with inverse ETF in bear markets.
 
 ---
 
-### Cell 11 — Executive Recommendations
+#### 3. DOWNSIDE RISK MANAGEMENT
 
-**Table 17 — Strategic Recommendations:** Eight business findings, each with a
-concise finding statement and a specific, actionable recommendation derived directly
-from the computed analytical outputs. All numerical values populated dynamically from
-computed results, not hardcoded.
+Finding: Maximum drawdown = -32.1%. Daily VaR (95%) = -2.49%. Tail risk (kurtosis > 3) confirms fat-tailed return distribution.  
+Action: Set portfolio-level VaR limit at 2x single-stock VaR. Use options collar during high-volatility periods.
 
 ---
+
+#### 4. LONG-TERM ALPHA GENERATION
+
+Finding: AAPL delivered 806.8% total return (2007–2016) vs S&P 500 39.7%. Excess return: 767.1 percentage points over the index period.  
+Action: Screen for stocks with consistent MACD bullish crossovers and RSI mean-reversion from oversold zones.
+
+---
+
+#### 5. VALUE INVESTING OPPORTUNITY
+
+Finding: 58 S&P 500 stocks achieve perfect Graham score (100/100): low PE, low PB, positive EPS, positive dividend yield.  
+Action: Construct equal-weight deep-value basket. Rebalance quarterly. Historically outperforms in late-cycle and early-recovery phases.
+
+---
+
+#### 6. PREDICTIVE MODEL DEPLOYMENT
+
+Finding: Linear Regression achieves R² = 0.9650, MAPE = 0.719% on out-of-sample data. Model inputs: Close, MA20, MA50, Volume, RSI, Volatility, MACD, HL Spread.  
+Action: Deploy as signal layer. Combine with RSI < 35 (oversold) AND MACD bullish cross for high-confidence entry signals. Backtest with 6-month rolling window.
+
+---
+
+#### 7. SECTOR ROTATION STRATEGY
+
+Finding: Information Technology dominates market cap share. Utilities and Consumer Staples show highest dividend yields with lower PE multiples.  
+Action: Rotate into high-yield, low-PE sectors (Utilities, Staples, Financials) during rate-tightening cycles. Rotate back into Technology in early easing phases.
+
+---
+
+#### 8. SEASONAL TRADING EDGE
+
+Finding: Monthly return analysis reveals consistent seasonal patterns in average daily returns. Certain months show persistent positive bias; others show negative bias.  
+Action: Overlay seasonal calendar on entry/exit signals. Increase exposure in historically strong months; reduce or hedge in weak months.
+
+---
+
 
 ## Key Results Summary
 
 | Finding | Value | Implication |
 |---|---|---|
-| AAPL 2-year Sharpe Ratio | 0.239 | Positive but below the 0.5 threshold for strong risk-adjusted return |
-| AAPL Maximum Drawdown | -32.08% | Significant drawdown tolerance required |
-| AAPL Beta vs S&P 500 | 0.961 | Near-market systematic risk |
-| AAPL Daily VaR (95%) | -2.49% | Maximum expected single-day loss 19 out of 20 trading days |
-| AAPL 10-year total return | +807% | Outperformed S&P 500 (+40%) by 767 percentage points |
-| OLS Regression R-squared | 0.974 | MA20 and RSI explain 97.4% of variance in daily close price |
-| Linear Regression R-squared (test) | 0.965 | Strong out-of-sample predictive accuracy |
-| Prediction MAPE | 0.719% | Average prediction error below 1% of actual price |
-| Deep Value stocks (Graham 100/100) | 64 | Out of 503 S&P 500 constituents |
+| AAPL two-year Sharpe ratio | 0.239 | Positive, but below the 0.5 threshold typically associated with strong risk-adjusted return |
+| AAPL maximum drawdown | −32.08% | Material drawdown tolerance required of any holding strategy |
+| AAPL beta versus S&P 500 | 0.961 | Near-market systematic risk exposure |
+| AAPL daily VaR (95%) | −2.49% | Expected ceiling on single-day loss in nineteen of twenty trading days |
+| AAPL ten-year total return | +807% | Outperformed the S&P 500 (+40%) by 767 percentage points |
+| OLS regression R² | 0.974 | Moving average, volume, RSI, and volatility explain 97.4% of daily closing price variance |
+| Linear Regression test R² | 0.965 | Strong out-of-sample predictive accuracy |
+| Prediction MAPE | 0.719% | Average forecast error below one percent of actual price |
+| Deep-value constituents (Graham 100/100) | 64 | Out of 503 S&P 500 companies screened |
 
 ---
 
-## How to Run
+## Quick Start
 
-### Option 1 — JupyterLab or Jupyter Notebook
+**JupyterLab or Jupyter Notebook**
 
 ```bash
 git clone https://github.com/novestuschirchir4-oss/stock-market-intelligence.git
@@ -409,30 +447,25 @@ pip install -r requirements.txt
 jupyter lab notebooks/stock_intelligence_platform.ipynb
 ```
 
-Run cells in order from Cell 1 to Cell 11. Each cell is independent and clearly labelled.
+Run the eleven stages sequentially; each is self-contained and clearly labelled.
 
-### Option 2 — Google Colab
+**Google Colab**
 
-1. Open https://colab.research.google.com
-2. File, then Open notebook, then GitHub tab
-3. Enter: `novestuschirchir4-oss/stock-market-intelligence`
-4. Select `notebooks/stock_intelligence_platform.ipynb`
-5. Run All
+Open Colab, choose File → Open notebook → GitHub, enter `novestuschirchir4-oss/stock-market-intelligence`, select `notebooks/stock_intelligence_platform.ipynb`, and run all cells.
 
-### Option 3 — Python Script
+**Standalone script**
 
 ```bash
 python src/stock_intelligence_platform.py
 ```
 
-### Option 4 — Interactive Dashboard (no Python required)
+**Interactive dashboard — no installation required**
 
-Open `dashboard/stock_intelligence_dashboard.html` directly in any web browser.
-All 12 charts are fully interactive with hover, zoom, and pan. No server required.
+Open `dashboard/stock_intelligence_dashboard.html` in any web browser. All twelve charts are fully interactive, supporting hover, zoom, and pan, with no server or dependency required.
 
 ---
 
-## Compatibility
+## Environment Compatibility
 
 | Environment | Status |
 |---|---|
@@ -441,31 +474,34 @@ All 12 charts are fully interactive with hover, zoom, and pan. No server require
 | Google Colab | Verified |
 | Anaconda (Windows, macOS, Linux) | Verified |
 | Python 3.10+ | Required |
-| NumPy 2.x | Supported (patch in Cell 1) |
+| NumPy 2.x | Supported via compatibility patch |
 
 ---
 
 ## Methodological References
 
-Graham, B., and Dodd, D. (1934). *Security analysis*. McGraw-Hill.
+Graham, B., & Dodd, D. (1934). *Security analysis*. McGraw-Hill.
 
-Mandelbrot, B. (1963). The variation of certain speculative prices. *The Journal of Business, 36*(4), 394-419. https://doi.org/10.1086/294632
+Mandelbrot, B. (1963). The variation of certain speculative prices. *The Journal of Business, 36*(4), 394–419. https://doi.org/10.1086/294632
 
-Sharpe, W. F. (1964). Capital asset prices: A theory of market equilibrium under conditions of risk. *The Journal of Finance, 19*(3), 425-442. https://doi.org/10.1111/j.1540-6261.1964.tb02865.x
+Sharpe, W. F. (1964). Capital asset prices: A theory of market equilibrium under conditions of risk. *The Journal of Finance, 19*(3), 425–442. https://doi.org/10.1111/j.1540-6261.1964.tb02865.x
 
-Sharpe, W. F. (1966). Mutual fund performance. *The Journal of Business, 39*(1), 119-138. https://doi.org/10.1086/294846
+Sharpe, W. F. (1966). Mutual fund performance. *The Journal of Business, 39*(1), 119–138. https://doi.org/10.1086/294846
 
-Sortino, F. A., and van der Meer, R. (1991). Downside risk. *The Journal of Portfolio Management, 17*(4), 27-31. https://doi.org/10.3905/jpm.1991.409343
+Sortino, F. A., & van der Meer, R. (1991). Downside risk. *The Journal of Portfolio Management, 17*(4), 27–31. https://doi.org/10.3905/jpm.1991.409343
 
-Tabachnick, B. G., and Fidell, L. S. (2019). *Using multivariate statistics* (7th ed.). Pearson Education.
+Tabachnick, B. G., & Fidell, L. S. (2019). *Using multivariate statistics* (7th ed.). Pearson Education.
 
 ---
 
 ## License
 
-This project is released under the MIT License. The underlying datasets carry their
-own licenses as documented in `data/DATA_SOURCES.md`.
+This project is released under the MIT License. The underlying datasets carry their own licenses, documented in `data/DATA_SOURCES.md`.
 
 ---
 
-*Built by Novestus Chirchir — Data Analyst*
+<div align="center">
+
+*Built by Novestus Chirchir*
+
+</div>
